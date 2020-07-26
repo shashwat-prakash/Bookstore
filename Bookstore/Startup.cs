@@ -49,13 +49,13 @@ namespace Bookstore
                 });
             });
 
-            /*app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>
             {
                 endpoints.Map("/Shashwat", async context =>
                 {
                     await context.Response.WriteAsync("Hello Shashwat!");
                 });
-            });*/
+            });
         }
     }
 }
