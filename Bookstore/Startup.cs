@@ -16,6 +16,8 @@ namespace Bookstore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //To add MVC to our web apps empty template we use AddControllerWithViews() in ASP.Net Core 3.1.
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,16 +42,20 @@ namespace Bookstore
             });*/
 
             app.UseRouting();
+            app.UseEndpoints(endpoint =>
+            {
+                endpoint.MapDefaultControllerRoute();
+            });
 
-            app.UseEndpoints(endpoints =>
+            /*app.UseEndpoints(endpoints =>
             {
                 endpoints.Map("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
-            });
+            });*/
 
-            app.UseEndpoints(endpoints =>
+            /*app.UseEndpoints(endpoints =>
             {
                 endpoints.Map("/Shashwat", async context =>
                 {
@@ -70,7 +76,7 @@ namespace Bookstore
                     else
                         await context.Response.WriteAsync("This is: " + env.EnvironmentName + " Environment");
                 });
-            });
+            });*/
         }
     }
 }
