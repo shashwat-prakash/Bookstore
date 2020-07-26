@@ -53,7 +53,22 @@ namespace Bookstore
             {
                 endpoints.Map("/Shashwat", async context =>
                 {
-                    await context.Response.WriteAsync("Hello Shashwat!");
+                    if(env.IsDevelopment())
+                    {
+                        await context.Response.WriteAsync("This is: "+env.EnvironmentName+" Environment");
+                    }
+                    else if(env.IsProduction())
+                    {
+                        await context.Response.WriteAsync("This is: " + env.EnvironmentName + " Environment");
+                    }
+                    else if(env.IsStaging())
+                    {
+                        await context.Response.WriteAsync("This is: " + env.EnvironmentName + " Environment");
+                    }
+                    else if(env.IsEnvironment("Shashwat"))
+                        await context.Response.WriteAsync("This is: " + env.EnvironmentName + " Environment");
+                    else
+                        await context.Response.WriteAsync("This is: " + env.EnvironmentName + " Environment");
                 });
             });
         }
