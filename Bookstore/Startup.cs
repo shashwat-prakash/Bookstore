@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace Bookstore
@@ -39,6 +41,14 @@ namespace Bookstore
             {
                 await context.Response.WriteAsync("Welcome from 2nd Middleware.");
                 await next();
+            });*/
+            app.UseStaticFiles();
+
+            /*To use the Custom StaticFiles, need to set middleware for it like below
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "MyStaticFiles")),
+                RequestPath = "/MyStaticFiles"
             });*/
 
             app.UseRouting();

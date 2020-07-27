@@ -109,3 +109,4 @@ D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.M
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ContactUs.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Career.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\TempViews\Index.cshtml.g.cs
+D:\Learning ASP.NET Core\Bookstore\Bookstore\bin\Debug\netcoreapp3.1\libman.json
