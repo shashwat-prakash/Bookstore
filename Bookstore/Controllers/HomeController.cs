@@ -27,6 +27,11 @@ namespace Bookstore.Controllers
 
         }
 
+        public ViewResult Help()
+        {
+            return View();
+        }
+
         public ViewResult Extra()
         {
             return View("Career");

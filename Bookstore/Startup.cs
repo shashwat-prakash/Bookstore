@@ -20,6 +20,9 @@ namespace Bookstore
         {
             //To add MVC to our web apps empty template we use AddControllerWithViews() in ASP.Net Core 3.1.
             services.AddControllersWithViews();
+#if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
