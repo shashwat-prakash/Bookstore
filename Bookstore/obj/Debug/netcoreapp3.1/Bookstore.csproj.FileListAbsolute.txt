@@ -398,3 +398,5 @@ D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.M
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.MvcApplicationPartsAssemblyInfo.cache
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Help.cshtml.g.cs
+D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
