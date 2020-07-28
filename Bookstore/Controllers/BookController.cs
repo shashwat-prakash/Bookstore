@@ -18,13 +18,13 @@ namespace Bookstore.Controllers
         public ViewResult GetAllBooks()
         {
             var data = _bookRepository.GetAllBooks();
-            return View();
+            return View(data);
         }
 
         public ViewResult GetBook(int id)
         {
             var data = _bookRepository.GetBook(id);
-            return View();
+            return View(data);
         }
 
         //http://localhost:5000/book/searchbook?bookname=MVC&authorname=Shashwat_Prakash
