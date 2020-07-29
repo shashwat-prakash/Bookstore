@@ -10,6 +10,11 @@ namespace Bookstore.Controllers
 {
     public class HomeController : Controller // To make it an MVC controller we inherit this class from Controller Class
     {
+        [ViewData]
+        public string ViewAttribute1 { get; set; }
+        [ViewData]
+        public  string Title { get; set; }
+
         public ViewResult Index()
         {
             ViewBag.Title = "Welcome To My Bookstore";
@@ -22,6 +27,8 @@ namespace Bookstore.Controllers
 
             ViewData["property"] = "BookStore";
             ViewData["book"] = new BookModel() { Id = 1, Author = "abcdfg", TotalPages = 34 };
+            ViewAttribute1 = "Shashwat";
+            Title = "Home page";
             return View();
         }
 

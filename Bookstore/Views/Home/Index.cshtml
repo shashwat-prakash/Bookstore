@@ -1,12 +1,12 @@
 ﻿@{ 
     dynamic data = ViewBag.Data;
     var bookdata = ViewData["book"] as BookModel; // casting of data is required as shown
-    ViewData["Title"] = "Home";
+    @*ViewData["Title"] = "Home";*@
 }
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>@ViewBag.Title @ViewData["property"]</h1>
+        <h1>@ViewBag.Title @ViewData["property"] @ViewData["ViewAttribute1"]</h1>
         <p>@data.Id  @data.Name</p>
         <p>@ViewBag.BookDetails.Id</p>
         <p>@ViewBag.BookDetails.Language</p>
