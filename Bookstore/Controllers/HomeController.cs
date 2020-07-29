@@ -16,19 +16,7 @@ namespace Bookstore.Controllers
         public  string Title { get; set; }
 
         public ViewResult Index()
-        {
-            ViewBag.Title = "Welcome To My Bookstore";
-            dynamic data = new ExpandoObject();
-            data.Id = 1;
-            data.Name = "Shashwat";
-            ViewBag.Data = data;
-
-            ViewBag.BookDetails = new BookModel() { Id = 1, Author = "ABC", Language = "en" };
-
-            ViewData["property"] = "BookStore";
-            ViewData["book"] = new BookModel() { Id = 1, Author = "abcdfg", TotalPages = 34 };
-            ViewAttribute1 = "Shashwat";
-            Title = "Home page";
+        {            
             return View();
         }
 
