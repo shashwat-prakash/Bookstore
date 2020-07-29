@@ -1,7 +1,18 @@
-﻿<section class="jumbotron text-center">
+﻿@{ 
+    dynamic data = ViewBag.Data;
+    var bookdata = ViewData["book"] as BookModel; // casting of data is required as shown
+    ViewData["Title"] = "Home";
+}
+
+<section class="jumbotron text-center">
     <div class="container">
-        <h1>Welcome to Bookstore</h1>
+        <h1>@ViewBag.Title @ViewData["property"]</h1>
+        <p>@data.Id  @data.Name</p>
+        <p>@ViewBag.BookDetails.Id</p>
+        <p>@ViewBag.BookDetails.Language</p>
         <p>Buy books online? From bestsellers to niche books..</p>
+        <p>Id= @bookdata.Id</p>
+        <p>Total pages= @bookdata.TotalPages</p>
         <p>Bookstore is the fastest way to compare book prices and buy books from online book sellers in India.</p>
         <p>
             <a class="btn btn-secondary">Search</a>
@@ -37,7 +48,7 @@
 @section IndexScript{ 
     <script>
         $(document).ready(function () {
-            alert("RenderSection For Index page");
+           @* alert("RenderSection For Index page");*@
         });
     </script>
 }

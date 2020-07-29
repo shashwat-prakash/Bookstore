@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Dynamic;
+using Bookstore.Models;
 
 namespace Bookstore.Controllers
 {
@@ -10,6 +12,16 @@ namespace Bookstore.Controllers
     {
         public ViewResult Index()
         {
+            ViewBag.Title = "Welcome To My Bookstore";
+            dynamic data = new ExpandoObject();
+            data.Id = 1;
+            data.Name = "Shashwat";
+            ViewBag.Data = data;
+
+            ViewBag.BookDetails = new BookModel() { Id = 1, Author = "ABC", Language = "en" };
+
+            ViewData["property"] = "BookStore";
+            ViewData["book"] = new BookModel() { Id = 1, Author = "abcdfg", TotalPages = 34 };
             return View();
         }
 
