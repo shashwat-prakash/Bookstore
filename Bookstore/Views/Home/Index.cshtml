@@ -6,7 +6,16 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>Welcome to Bookstore</h1>        
+        <h1>Welcome to Bookstore</h1>
+        @*<environment names="Development">
+            <p>Dev</p>
+        </environment>
+        <environment include="Production, Staging">
+            <p>Pro</p>
+        </environment>
+        <environment exclude="Production">
+            <p>Stage</p>
+        </environment>*@
         <p>Bookstore is the fastest way to compare book prices and buy books from online book sellers in India.</p>
         <p>
             <a class="btn btn-secondary">Search</a>
