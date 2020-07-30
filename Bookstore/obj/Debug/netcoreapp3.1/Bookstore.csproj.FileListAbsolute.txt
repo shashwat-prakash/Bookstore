@@ -400,3 +400,4 @@ D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Help.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Book\AddBook.cshtml.g.cs

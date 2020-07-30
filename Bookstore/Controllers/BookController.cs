@@ -15,6 +15,17 @@ namespace Bookstore.Controllers
         {
             _bookRepository = new BookRepository();
         }
+
+        public ViewResult AddBook()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult AddBook(BookModel bookModel)
+        {
+            return View();
+        }
         public ViewResult GetAllBooks()
         {
             var data = _bookRepository.GetAllBooks();
