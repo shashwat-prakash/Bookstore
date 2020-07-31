@@ -23,7 +23,7 @@ namespace Bookstore.Repository
                 CreatedOn = DateTime.UtcNow,
                 Description = book.Description,
                 Title = book.Title,
-                TotalPages = book.TotalPages,
+                TotalPages = book.TotalPages.HasValue ? book.TotalPages.Value : 0,
                 UpdatedOn = DateTime.UtcNow
             };
             await _context.Books.AddAsync(newBook);

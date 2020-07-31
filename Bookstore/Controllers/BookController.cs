@@ -26,11 +26,16 @@ namespace Bookstore.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBook(BookModel bookModel)
         {
-            var id = await _bookRepository.AddBook(bookModel);
-            if(id > 0)
+            if(ModelState.IsValid)
             {
-                return RedirectToAction(nameof(AddBook), new {isSuccess = true, bookId =id });
+                var id = await _bookRepository.AddBook(bookModel);
+                if (id > 0)
+                {
+                    return RedirectToAction(nameof(AddBook), new { isSuccess = true, bookId = id });
+                }
             }
+            /*ViewBag.isSuccess = isSuccess;
+            ViewBag.BookId = bookId;*/
             return View();
         }
         public async Task<ViewResult> GetAllBooks()
