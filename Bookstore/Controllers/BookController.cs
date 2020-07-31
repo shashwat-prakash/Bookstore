@@ -36,6 +36,7 @@ namespace Bookstore.Controllers
             }
             /*ViewBag.isSuccess = isSuccess;
             ViewBag.BookId = bookId;*/
+            ModelState.AddModelError("", "Error from Book Controller");
             return View();
         }
         public async Task<ViewResult> GetAllBooks()
