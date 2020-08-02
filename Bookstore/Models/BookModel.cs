@@ -8,6 +8,9 @@ namespace Bookstore.Models
 {
     public class BookModel
     {
+        /*[DataType(DataType.Date)]
+        [Display(Name ="Chose date and time")]
+        public string MyField { get; set; }*/
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Please enter Title")]
@@ -20,9 +23,9 @@ namespace Bookstore.Models
 
         [Required(ErrorMessage ="Author name cannot be empty.")]        
         public string Author { get; set; }
-
         
         public string Category { get; set; }
+        [Required(ErrorMessage = "Please choose your book language.")]
         public string Language { get; set; }
         [Required]
         [Display(Name ="Total pages of book")]
