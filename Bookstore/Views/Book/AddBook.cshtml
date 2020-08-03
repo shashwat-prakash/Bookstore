@@ -1,4 +1,4 @@
-﻿
+﻿@using Bookstore.Enums
 @{
     ViewData["Title"] = "AddBook";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,9 +21,9 @@
     <form method="post" asp-action="AddBook" asp-controller="Book">
         <div asp-validation-summary="All" class="text-danger"></div>
         <!--<div class="form-group row">
-            <label asp-for="MyField" class="col-sm-2 col-form-label"></label>
-            <input asp-for="MyField" class="form-control col-sm-5" />-->
-            @*<span asp-validation-for="Title" class="text-danger"></span>*@
+        <label asp-for="MyField" class="col-sm-2 col-form-label"></label>
+        <input asp-for="MyField" class="form-control col-sm-5" />-->
+        @*<span asp-validation-for="Title" class="text-danger"></span>*@
         <!--</div>-->
         <div class="form-group row">
             <label asp-for="Title" class="col-sm-2 col-form-label"></label>
@@ -52,12 +52,18 @@
         </div>
         <div class="form-group row">
             <label asp-for="Language" class="col-sm-2 col-form-label"></label>
-            <select asp-for="Language" class="form-control col-sm-5" >
+            <select asp-for="Language" class="form-control col-sm-5">
                 <option value="">Please select language</option>
-                <option>English</option>
-                <option>Hindi</option>
-                <option>Spanish</option>
-                <option>Urdu</option>
+                <option value="English">English Worldwide</option>
+                <option value="Hindi">Hindi , India</option>
+                <option value="Spanish">Spanish, Spain</option>
+                <option value="Urdu">Urdu, Islamic </option>
+            </select>
+            @*<span asp-validation-for="Language" class="text-danger"></span>*@
+        </div>
+        <div class="form-group row">
+            <label asp-for="MultiLang" class="col-sm-2 col-form-label"></label>
+            <select asp-for="MultiLang" class="form-control col-sm-5" asp-items="Html.GetEnumSelectList<LanguageEnum>()">                
             </select>
             @*<span asp-validation-for="Language" class="text-danger"></span>*@
         </div>
