@@ -15,9 +15,9 @@ namespace Bookstore.Models
         public string MyField { get; set; }*/
         public int Id { get; set; }
 
-       /* [Required(ErrorMessage = "Please enter Title")]
-        [StringLength(100, MinimumLength = 5)]*/
-       [MyCustomValidationAttribute]
+        [Required(ErrorMessage = "Please enter Title")]
+        [StringLength(100, MinimumLength = 5)]
+        /*[MyCustomValidationAttribute]*/
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Description cannot be empty.")]
