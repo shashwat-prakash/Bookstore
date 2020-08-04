@@ -27,7 +27,7 @@ using Bookstore.Enums;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4e16e581d020374e8cfc31e726311b4c6578a058", @"/Views/Book/AddBook.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0d7d399597d26d08191a48be1d1c1d65f08d8920", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3dda74219576cde3de361ab646192e98689141fb", @"/Views/_ViewImports.cshtml")]
     public class Views_Book_AddBook : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BookModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "GetBook", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

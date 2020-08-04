@@ -20,7 +20,7 @@ using Bookstore.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0312a1fa5748d444c1b2e74504565d7d4cacbd1a", @"/Views/Book/SearchBook.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0d7d399597d26d08191a48be1d1c1d65f08d8920", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3dda74219576cde3de361ab646192e98689141fb", @"/Views/_ViewImports.cshtml")]
     public class Views_Book_SearchBook : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
