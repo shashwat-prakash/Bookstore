@@ -76,10 +76,11 @@ namespace Bookstore.Repository
 
         public List<BookModel> SearchBook(string Title, string Author)
         {
-            return DataSource().Where(x => x.Title.Contains(Title) || x.Author.Contains(Author)).ToList();
+            //return DataSource().Where(x => x.Title.Contains(Title) || x.Author.Contains(Author)).ToList();
+            return null;
         }
 
-        private List<BookModel> DataSource()
+        /*private List<BookModel> DataSource()
         {
             return new List<BookModel>()
             {
@@ -90,6 +91,6 @@ namespace Bookstore.Repository
                 new BookModel(){Id=0005, Title="ReactJS", Author="Kutub",Description="This is the description for ReactJs book",Category="UI Library",Language="English", TotalPages=280},
                 new BookModel(){Id=0006, Title="NodeJS", Author="Harish",Description="This is the description for NodeJs book",Category="Framework",Language="English", TotalPages=683}
             };
-        }
+        }*/
     }
 }
