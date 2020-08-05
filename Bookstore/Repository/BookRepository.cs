@@ -25,7 +25,8 @@ namespace Bookstore.Repository
                 Title = book.Title,
                 Language = book.Language,
                 TotalPages = book.TotalPages.HasValue ? book.TotalPages.Value : 0,
-                UpdatedOn = DateTime.UtcNow
+                UpdatedOn = DateTime.UtcNow,
+                CoverImageUrl = book.CoverImageUrl
             };
             await _context.Books.AddAsync(newBook);
             await _context.SaveChangesAsync();
@@ -47,7 +48,8 @@ namespace Bookstore.Repository
                         TotalPages = book.TotalPages,
                         Id = book.Id,
                         Category = book.Category,
-                        Language = book.Language
+                        Language = book.Language,
+                        CoverImageUrl = book.CoverImageUrl
                     });
                 }
             }
@@ -67,7 +69,8 @@ namespace Bookstore.Repository
                     TotalPages = bookDetails.TotalPages,
                     Id = bookDetails.Id,
                     Category = bookDetails.Category,
-                    Language = bookDetails.Language
+                    Language = bookDetails.Language,
+                    CoverImageUrl = bookDetails.CoverImageUrl
                 };
                 return book;
             }

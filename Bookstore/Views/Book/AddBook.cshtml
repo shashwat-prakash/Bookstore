@@ -28,11 +28,11 @@
         @*<div asp-validation-summary="All" class="text-danger"></div>*@
         <div class="card">
             <div class="card-body">
-                <form method="post" data-ajax="true" data-ajax-loading="#myloader"  asp-action="AddBook" asp-controller="Book">
+                <form method="post" enctype="multipart/form-data" data-ajax="true" data-ajax-loading="#myloader" asp-action="AddBook" asp-controller="Book">
 
                     <!--<div class="form-group row">
-                <label asp-for="MyField" class="col-sm-2 col-form-label"></label>
-                <input asp-for="MyField" class="form-control col-sm-5" />-->
+    <label asp-for="MyField" class="col-sm-2 col-form-label"></label>
+    <input asp-for="MyField" class="form-control col-sm-5" />-->
                     @*<span asp-validation-for="Title" class="text-danger"></span>*@
                     <!--</div>-->
                     <div class="form-group row">
@@ -49,6 +49,16 @@
                         <label asp-for="Description" class="col-sm-2 col-form-label"></label>
                         <textarea asp-for="Description" class="form-control col-sm-5"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="CoverPhoto" class="col-sm-2 col-form-label"></label>
+                        <div class="input-group col-sm-5">                            
+                            <div class="custom-file">
+                                <input asp-for="CoverPhoto" class="custom-file-input col-sm-5" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Chose file</label>
+                            </div>
+                        </div>
+                        <span asp-validation-for="CoverPhoto" class="text-danger"></span>
                     </div>
                     <div class="form-group row">
                         <label asp-for="Category" class="col-sm-2 col-form-label"></label>
@@ -72,10 +82,10 @@
                         <span asp-validation-for="Language" class="text-danger"></span>
                     </div>
                     <!--<div class="form-group row">
-                        <label asp-for="MultiLang" class="col-sm-2 col-form-label"></label>
-                        <select asp-for="MultiLang" class="form-control col-sm-5" asp-items="Html.GetEnumSelectList<LanguageEnum>()">
-                        </select>-->
-                        @*<span asp-validation-for="Language" class="text-danger"></span>*@
+        <label asp-for="MultiLang" class="col-sm-2 col-form-label"></label>
+        <select asp-for="MultiLang" class="form-control col-sm-5" asp-items="Html.GetEnumSelectList<LanguageEnum>()">
+        </select>-->
+                    @*<span asp-validation-for="Language" class="text-danger"></span>*@
                     <!--</div>-->
                     <div class="form-group row">
                         <input type="submit" value="Add Book" class="btn btn-primary col-sm-3" />

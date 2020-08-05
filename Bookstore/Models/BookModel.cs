@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Bookstore.Enums;
 using Bookstore.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace Bookstore.Models
 {
@@ -26,6 +27,10 @@ namespace Bookstore.Models
 
         [Required(ErrorMessage ="Author name cannot be empty.")]        
         public string Author { get; set; }
+        [Display(Name = "Cover Image")]
+        [Required]
+        public IFormFile CoverPhoto { get; set; }
+        public string CoverImageUrl { get; set; }
         
         public string Category { get; set; }
         [Required(ErrorMessage = "Please choose your book language.")]

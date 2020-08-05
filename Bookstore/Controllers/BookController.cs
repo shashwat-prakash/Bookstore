@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Bookstore.Models;
 using Bookstore.Repository;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Controllers
@@ -11,9 +13,11 @@ namespace Bookstore.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _bookRepository = null;
-        public BookController(BookRepository book)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public BookController(BookRepository book, IWebHostEnvironment webHostEnvironment)
         {
             _bookRepository = book;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public ViewResult AddBook(bool isSuccess = false, int bookId = 0)
@@ -28,6 +32,14 @@ namespace Bookstore.Controllers
         {
             if(ModelState.IsValid)
             {
+                if(bookModel.CoverPhoto != null)
+                {
+                    string folder = "Books/cover/";
+                    folder += Guid.NewGuid().ToString()+"_"+bookModel.CoverPhoto.FileName;
+                    bookModel.CoverImageUrl = "/"+folder;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                    await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                }
                 var id = await _bookRepository.AddBook(bookModel);
                 if (id > 0)
                 {
