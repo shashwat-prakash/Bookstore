@@ -52,14 +52,21 @@
                     </div>
                     <div class="form-group row">
                         <label asp-for="CoverPhoto" class="col-sm-2 col-form-label"></label>
-                        <div class="input-group col-sm-5">                            
-                            <div class="custom-file">
-                                <input asp-for="CoverPhoto" class="custom-file-input col-sm-5" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Chose file</label>
-                            </div>
+                        <div class="custom-file input-group col-sm-5">
+                            <input asp-for="CoverPhoto" class="custom-file-input col-sm-5" id="inputGroupFile02" aria-describedby="inputGroupFileAddon02">
+                            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                         </div>
                         <span asp-validation-for="CoverPhoto" class="text-danger"></span>
                     </div>
+                    <div class="form-group row">
+                        <label asp-for="BookPdf" class="col-sm-2 col-form-label"></label>
+                        <div class="custom-file input-group col-sm-5">
+                            <input asp-for="BookPdf" class="custom-file-input col-sm-5" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                        <span asp-validation-for="BookPdf" class="text-danger"></span>
+                    </div>
+
                     <div class="form-group row">
                         <label asp-for="Category" class="col-sm-2 col-form-label"></label>
                         <input asp-for="Category" class="form-control col-sm-5" />
@@ -82,9 +89,9 @@
                         <span asp-validation-for="Language" class="text-danger"></span>
                     </div>
                     <!--<div class="form-group row">
-        <label asp-for="MultiLang" class="col-sm-2 col-form-label"></label>
-        <select asp-for="MultiLang" class="form-control col-sm-5" asp-items="Html.GetEnumSelectList<LanguageEnum>()">
-        </select>-->
+    <label asp-for="MultiLang" class="col-sm-2 col-form-label"></label>
+    <select asp-for="MultiLang" class="form-control col-sm-5" asp-items="Html.GetEnumSelectList<LanguageEnum>()">
+    </select>-->
                     @*<span asp-validation-for="Language" class="text-danger"></span>*@
                     <!--</div>-->
                     <div class="form-group row">

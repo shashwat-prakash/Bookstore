@@ -40,6 +40,15 @@ namespace Bookstore.Controllers
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
                     await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
                 }
+
+                if (bookModel.BookPdf != null)
+                {
+                    string folder = "Books/pdf/";
+                    folder += Guid.NewGuid().ToString() + "_" + bookModel.BookPdf.FileName;
+                    bookModel.BookPdfUrl = "/" + folder;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                    await bookModel.BookPdf.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                }
                 var id = await _bookRepository.AddBook(bookModel);
                 if (id > 0)
                 {

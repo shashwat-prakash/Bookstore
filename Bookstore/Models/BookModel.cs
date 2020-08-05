@@ -40,5 +40,10 @@ namespace Bookstore.Models
         [Required]
         [Display(Name ="Total pages of book")]
         public int? TotalPages { get; set; }
+
+        [Display(Name = "Boof PDF")]
+        [Required]
+        public IFormFile BookPdf { get; set; }
+        public string BookPdfUrl { get; set; }
     }
 }
