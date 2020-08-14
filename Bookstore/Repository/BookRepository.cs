@@ -57,6 +57,30 @@ namespace Bookstore.Repository
             return books;
         }
 
+        public async Task<List<BookModel>> GetTopBooksAsync(int count)
+        {
+            var books = new List<BookModel>();
+            var allBooks = await _context.Books.Take(count).ToListAsync();
+            if (allBooks?.Any() == true)
+            {
+                foreach (var book in allBooks)
+                {
+                    books.Add(new BookModel()
+                    {
+                        Author = book.Author,
+                        Description = book.Description,
+                        Title = book.Title,
+                        TotalPages = book.TotalPages,
+                        Id = book.Id,
+                        Category = book.Category,
+                        Language = book.Language,
+                        CoverImageUrl = book.CoverImageUrl
+                    });
+                }
+            }
+            return books;
+        }
+
         public async Task<BookModel> GetBook(int Id)
         {
             var bookDetails = await _context.Books.Where(book => book.Id == Id).FirstOrDefaultAsync();

@@ -424,3 +424,4 @@ D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.M
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_footer.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_header.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_bookThumbnail.cshtml.g.cs
+D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\TopBooks\Default.cshtml.g.cs
