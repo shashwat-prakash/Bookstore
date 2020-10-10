@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Repository
 {
-    public class BookRepository
+    public class BookRepository : IBookRepository
     {
         private readonly BookStoreContext _context = null;
         public BookRepository(BookStoreContext context)
@@ -37,7 +37,7 @@ namespace Bookstore.Repository
         {
             var books = new List<BookModel>();
             var allBooks = await _context.Books.ToListAsync();
-            if(allBooks?.Any() == true)
+            if (allBooks?.Any() == true)
             {
                 foreach (var book in allBooks)
                 {
@@ -84,7 +84,7 @@ namespace Bookstore.Repository
         public async Task<BookModel> GetBook(int Id)
         {
             var bookDetails = await _context.Books.Where(book => book.Id == Id).FirstOrDefaultAsync();
-            if(bookDetails != null)
+            if (bookDetails != null)
             {
                 var book = new BookModel()
                 {

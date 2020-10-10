@@ -12,9 +12,9 @@ namespace Bookstore.Controllers
 {
     public class BookController : Controller
     {
-        private readonly BookRepository _bookRepository = null;
+        private readonly IBookRepository _bookRepository = null;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public BookController(BookRepository book, IWebHostEnvironment webHostEnvironment)
+        public BookController(IBookRepository book, IWebHostEnvironment webHostEnvironment)
         {
             _bookRepository = book;
             _webHostEnvironment = webHostEnvironment;
@@ -66,6 +66,7 @@ namespace Bookstore.Controllers
             return View(data);
         }
 
+        [Route("book-details/{id:int:min(1)}")]
         public async Task<ViewResult> GetBook(int id)
         {
             var data = await _bookRepository.GetBook(id);

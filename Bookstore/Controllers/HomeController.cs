@@ -20,17 +20,20 @@ namespace Bookstore.Controllers
             return View();
         }
 
+        [Route("about-us", Name = "about-us")]
+        [HttpGet]
         public ViewResult About()
         {
             var ModelObj = new { Id= 1, Name="Shashwat" };
             return View(ModelObj);
         }
 
+        [HttpGet("contact-us")]
         public ViewResult ContactUs()
         {
-            /*return View();*/
+            return View();
             /*return View("~/TempViews/Index.cshtml");*/
-            return View("../../TempViews/Index");
+            /* return View("../../TempViews/Index");*/
 
         }
 
