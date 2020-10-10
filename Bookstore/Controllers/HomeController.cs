@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Dynamic;
 using Bookstore.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Bookstore.Controllers
 {
@@ -15,8 +16,14 @@ namespace Bookstore.Controllers
         [ViewData]
         public  string Title { get; set; }
 
+        private IConfiguration _configuration { get; }
+        public HomeController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public ViewResult Index()
-        {            
+        {
+           // var appName = _configuration["ApplicationName"];
             return View();
         }
 
