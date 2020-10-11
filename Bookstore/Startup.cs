@@ -4,10 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Bookstore.Data;
+using Bookstore.Models;
 using Bookstore.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,21 @@ namespace Bookstore
         {
             services.AddDbContext<BookStoreContext>( options =>
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            
+            //Configure Identity server in this application using AddIdentity() and also connect with the DBContext that we are using.
+            services.AddIdentity<ApplicationUser, IdentityRole>().
+                AddEntityFrameworkStores<BookStoreContext>();
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/login";
+            });
+            
+            /*Configure Password settings of Identity Server for ex:-
+            services.Configure<IdentityOptions>(options => {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+            });*/
 
             //To add MVC to our web apps empty template we use AddControllerWithViews() in ASP.Net Core 3.1.
             services.AddControllersWithViews();
@@ -38,6 +55,7 @@ namespace Bookstore
             });
 #endif
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +88,8 @@ namespace Bookstore
             });*/
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoint =>
             {
                 endpoint.MapDefaultControllerRoute();

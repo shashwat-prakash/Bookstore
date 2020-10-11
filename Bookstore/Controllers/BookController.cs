@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bookstore.Models;
 using Bookstore.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,7 @@ namespace Bookstore.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [Authorize]
         public ViewResult AddBook(bool isSuccess = false, int bookId = 0)
         {
             ViewBag.isSuccess = isSuccess;
