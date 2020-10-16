@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Bookstore.Data;
+using Bookstore.Helpers;
 using Bookstore.Models;
 using Bookstore.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -56,6 +57,10 @@ namespace Bookstore
 #endif
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+
+            //Register the custom Claims to user in startup class
+            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
