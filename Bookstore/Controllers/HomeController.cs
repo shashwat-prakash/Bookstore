@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Dynamic;
 using Bookstore.Models;
 using Microsoft.Extensions.Configuration;
+using Bookstore.Service;
 
 namespace Bookstore.Controllers
 {
@@ -17,13 +18,19 @@ namespace Bookstore.Controllers
         public  string Title { get; set; }
 
         private IConfiguration _configuration { get; }
-        public HomeController(IConfiguration configuration)
+        public IUserService _userService { get; }
+
+        public HomeController(IConfiguration configuration, IUserService userService)
         {
             _configuration = configuration;
+            _userService = userService;
         }
         public ViewResult Index()
         {
-           // var appName = _configuration["ApplicationName"];
+            // var appName = _configuration["ApplicationName"];
+
+            var userId = _userService.GetUserId();
+            var isLoggedIn = _userService.IsAuthenticated();
             return View();
         }
 
