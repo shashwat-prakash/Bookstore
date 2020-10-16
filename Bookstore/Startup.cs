@@ -7,6 +7,7 @@ using Bookstore.Data;
 using Bookstore.Helpers;
 using Bookstore.Models;
 using Bookstore.Repository;
+using Bookstore.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -60,7 +61,7 @@ namespace Bookstore
 
             //Register the custom Claims to user in startup class
             services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
-
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
