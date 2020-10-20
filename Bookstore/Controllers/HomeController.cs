@@ -19,18 +19,30 @@ namespace Bookstore.Controllers
 
         private IConfiguration _configuration { get; }
         public IUserService _userService { get; }
+        public IEmailService _emailService{ get; }
 
-        public HomeController(IConfiguration configuration, IUserService userService)
+        public HomeController(IConfiguration configuration, IUserService userService, IEmailService emailService)
         {
             _configuration = configuration;
             _userService = userService;
+            _emailService = emailService;
         }
-        public ViewResult Index()
+        public async Task<ViewResult> Index()
         {
             // var appName = _configuration["ApplicationName"];
 
             var userId = _userService.GetUserId();
             var isLoggedIn = _userService.IsAuthenticated();
+
+            UserEmailOptions userEmailOptions = new UserEmailOptions
+            {
+                ToEmails = new List<string>() { "kumar.prince502@gmail.com" },
+                Placeholders = new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("{{Username}}","Shashwat")
+                }
+            };
+            await _emailService.SendTestEmail(userEmailOptions);
             return View();
         }
 

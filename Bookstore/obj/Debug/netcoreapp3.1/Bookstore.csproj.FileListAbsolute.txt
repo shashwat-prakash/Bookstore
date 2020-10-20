@@ -429,3 +429,4 @@ D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.M
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Account\Signup.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginInfo.cshtml.g.cs
+D:\Learning ASP.NET Core\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
