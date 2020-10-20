@@ -42,12 +42,14 @@ namespace Bookstore
             {
                 config.LoginPath = "/login";
             });
-            
-            /*Configure Password settings of Identity Server for ex:-
-            services.Configure<IdentityOptions>(options => {
-                options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 8;
-            });*/
+
+            /*Configure Password settings of Identity Server for ex:-*/
+            services.Configure<IdentityOptions>(options =>
+            {
+                /*options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;*/
+                options.SignIn.RequireConfirmedEmail = true;
+            });
 
             //To add MVC to our web apps empty template we use AddControllerWithViews() in ASP.Net Core 3.1.
             services.AddControllersWithViews();
@@ -56,12 +58,15 @@ namespace Bookstore
                 option.HtmlHelperOptions.ClientValidationEnabled = true;
             });
 #endif
+
+            services.Configure<SMTPConfigModel>(_configuration.GetSection("SMTPConfig"));
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
 
             //Register the custom Claims to user in startup class
             services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEmailService, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

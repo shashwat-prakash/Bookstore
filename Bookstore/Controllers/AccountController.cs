@@ -62,7 +62,12 @@ namespace Bookstore.Controllers
                     }
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Invalid Username and Password");
+                if(result.IsNotAllowed)
+                {
+                    ModelState.AddModelError("", "Not allowed to login");
+                }
+                else
+                    ModelState.AddModelError("", "Invalid Username and Password");
             }
             return View();
         }
