@@ -34,7 +34,7 @@ namespace Bookstore.Controllers
             var userId = _userService.GetUserId();
             var isLoggedIn = _userService.IsAuthenticated();
 
-            UserEmailOptions userEmailOptions = new UserEmailOptions
+            /*UserEmailOptions userEmailOptions = new UserEmailOptions
             {
                 ToEmails = new List<string>() { "kumar.prince502@gmail.com" },
                 Placeholders = new List<KeyValuePair<string, string>>()
@@ -42,7 +42,7 @@ namespace Bookstore.Controllers
                     new KeyValuePair<string, string>("{{Username}}","Shashwat")
                 }
             };
-            await _emailService.SendTestEmail(userEmailOptions);
+            await _emailService.SendTestEmail(userEmailOptions);*/
             return View();
         }
 

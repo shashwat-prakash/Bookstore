@@ -27,6 +27,15 @@ namespace Bookstore.Service
 
             await SendEmail(userEmailOptions);
         }
+
+        public async Task SendEmailConfirmation(UserEmailOptions userEmailOptions)
+        {
+            userEmailOptions.Subject = UpdatePlaceholders("Hello {{Username}}, Confirm your email id.", userEmailOptions.Placeholders);
+            userEmailOptions.Body = UpdatePlaceholders(GetEmailBody("EmailConfirmationTemplate"), userEmailOptions.Placeholders);
+
+            await SendEmail(userEmailOptions);
+        }
+
         private async Task SendEmail(UserEmailOptions userEmailOptions)
         {
             MailMessage mail = new MailMessage

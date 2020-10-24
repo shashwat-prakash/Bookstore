@@ -1,6 +1,7 @@
 ﻿using Bookstore.Models;
 using Bookstore.Service;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,19 @@ namespace Bookstore.Repository
         private readonly UserManager<ApplicationUser> _userManger;
         private readonly SignInManager<ApplicationUser> _signInManger;
         private readonly IUserService _userService;
+        private readonly IEmailService _emailService;
+        private readonly IConfiguration _configuration;
         public AccountRepository(UserManager<ApplicationUser> userManger,
             SignInManager<ApplicationUser> signInManager,
-            IUserService userService)
+            IUserService userService,
+            IEmailService emailService,
+            IConfiguration configuration)
         {
             _userManger = userManger;
             _signInManger = signInManager;
             _userService = userService;
+            _emailService = emailService;
+            _configuration = configuration;
         }
 
         public async Task<IdentityResult> CreateUserAsync(SignUpUserModel userModel)
@@ -32,6 +39,14 @@ namespace Bookstore.Repository
                 UserName = userModel.Email
             };
             var result = await _userManger.CreateAsync(user, userModel.Password);
+            if(result.Succeeded)
+            {
+                var token = await _userManger.GenerateEmailConfirmationTokenAsync(user);
+                if(!string.IsNullOrEmpty(token))
+                {
+                    await SendEmailConfirmation(user, token);
+                }
+            }
             return result;
         }
 
@@ -53,6 +68,22 @@ namespace Bookstore.Repository
             var userId = _userService.GetUserId();
             var user = await _userManger.FindByIdAsync(userId);
             return await _userManger.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
+        }
+
+        private async Task SendEmailConfirmation(ApplicationUser user, string token)
+        {
+            string appDomain = _configuration.GetSection("AppDomain").Value;
+            string confirmationLink = _configuration.GetSection("EmailConfirmation").Value;
+            UserEmailOptions userEmailOptions = new UserEmailOptions
+            {
+                ToEmails = new List<string>() { user.Email },
+                Placeholders = new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("{{Username}}", user.FirstName),
+                    new KeyValuePair<string, string>("{{Link}}", string.Format(appDomain + confirmationLink, user.Id, token))
+                }
+            };
+            await _emailService.SendEmailConfirmation(userEmailOptions);
         }
     }
 }

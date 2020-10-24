@@ -36,7 +36,7 @@ namespace Bookstore
             
             //Configure Identity server in this application using AddIdentity() and also connect with the DBContext that we are using.
             services.AddIdentity<ApplicationUser, IdentityRole>().
-                AddEntityFrameworkStores<BookStoreContext>();
+                AddEntityFrameworkStores<BookStoreContext>().AddDefaultTokenProviders(); //that means we are using default token provider in this application
 
             services.ConfigureApplicationCookie(config =>
             {
