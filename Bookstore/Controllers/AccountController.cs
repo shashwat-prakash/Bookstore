@@ -105,5 +105,20 @@ namespace Bookstore.Controllers
             }
             return View();
         }
+
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(string uid, string token)
+        {
+            if(!string.IsNullOrEmpty(uid) && !string.IsNullOrEmpty(token))
+            {
+                token = token.Replace(" ", "+"); //Replace space in token by + value
+                var result = await _accountRepository.ConfirmEmailAsync(uid, token);
+                if(result.Succeeded)
+                {
+                    ViewBag.IsSuccess = true;
+                }
+            }
+            return View();
+        }
     }
 }

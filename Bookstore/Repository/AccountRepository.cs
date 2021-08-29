@@ -69,6 +69,10 @@ namespace Bookstore.Repository
             var user = await _userManger.FindByIdAsync(userId);
             return await _userManger.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
         }
+        public async Task<IdentityResult> ConfirmEmailAsync(string uid, string token)
+        {
+            return await _userManger.ConfirmEmailAsync(await _userManger.FindByIdAsync(uid), token);
+        }
 
         private async Task SendEmailConfirmation(ApplicationUser user, string token)
         {
