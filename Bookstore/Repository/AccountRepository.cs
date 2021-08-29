@@ -39,10 +39,10 @@ namespace Bookstore.Repository
                 UserName = userModel.Email
             };
             var result = await _userManger.CreateAsync(user, userModel.Password);
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
                 var token = await _userManger.GenerateEmailConfirmationTokenAsync(user);
-                if(!string.IsNullOrEmpty(token))
+                if (!string.IsNullOrEmpty(token))
                 {
                     await SendEmailConfirmation(user, token);
                 }
@@ -84,7 +84,7 @@ namespace Bookstore.Repository
                 Placeholders = new List<KeyValuePair<string, string>>()
                 {
                     new KeyValuePair<string, string>("{{Username}}", user.FirstName),
-                    new KeyValuePair<string, string>("{{Link}}", string.Format(appDomain + confirmationLink, user.Id, token))
+                    new KeyValuePair<string, string>("{{Link}}", string.Format(appDomain+ "/" + confirmationLink, user.Id, token))
                 }
             };
             await _emailService.SendEmailConfirmation(userEmailOptions);
