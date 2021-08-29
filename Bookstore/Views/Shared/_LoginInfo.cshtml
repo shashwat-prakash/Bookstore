@@ -1,0 +1,27 @@
+﻿
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager;
+
+@if (_signInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           @*It will display the loggedIn user email Id
+            Hello @User.Identity.Name*@
+
+            @*Here, Using Claims identified the LoggedIn user FName and LName*@
+            Hello @(User.FindFirst("UserFirstname").Value + " "+ User.FindFirst("UserLastname").Value)
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">Change Password</a>
+            <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
+        </div>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path">Login</a>
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Signup">Register</a>
+    </li>
+
+}
